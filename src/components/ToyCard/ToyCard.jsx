@@ -1,14 +1,16 @@
 
-const ToyCard = () => {
+const ToyCard = ({toy,indx}) => {
+    const {seller,toyName,subCategory,price,quantity}=toy;
+    console.log(indx)
     return (
-        <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Littel, Schaden and Vandervort</td>
-            <td>Canada</td>
-            <td>12/16/2020</td>
-            <td>Blue</td>
+        <tr className="text-center">
+            <th>{indx}</th>
+            <td>{seller}</td>
+            <td>{toyName}</td>
+            <td>{subCategory}</td>
+            <td>{price}</td>
+            <td>{quantity}</td>
+            <td><button className="btn btn-accent text-white">View Details</button></td>
         </tr>
     );
 };

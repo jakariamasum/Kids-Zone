@@ -1,11 +1,18 @@
+import { useEffect, useState } from "react";
 import ToyCard from "../../components/ToyCard/ToyCard";
 
 const AllToys = () => {
+    const [toys,setToys]=useState([]); 
+    useEffect(()=>{
+        fetch('http://localhost:5000/toys')
+        .then(res=>res.json())
+        .then(data=>setToys(data))
+    },[])
     return (
         <div className="overflow-x-auto mt-16 mx-28">
             <table className="table table-compact w-full">
                 <thead>
-                    <tr>
+                    <tr className="text-center">
                         <th></th>
                         <th>Seller</th>
                         <th>Toy Name</th>
@@ -17,7 +24,9 @@ const AllToys = () => {
                 </thead>
                 <tbody>
                     {
-                        <ToyCard/>
+                        toys.map((toy,indx)=>{
+                           return <ToyCard key={toy._id} toy={toy} indx={indx+1}></ToyCard>
+                        })
                     }
                 </tbody>
                

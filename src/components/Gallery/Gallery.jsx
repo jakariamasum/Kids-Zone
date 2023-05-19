@@ -4,6 +4,7 @@ const Gallery = () => {
         'https://img.freepik.com/free-photo/close-up-toy-car-with-easter-eggs_23-2149318378.jpg?w=1060&t=st=1684480705~exp=1684481305~hmac=e3cdd0433fc721383d268503289f943cf9d5b3b1261715d25ab9ffccd9ec6aac',
         'https://img.freepik.com/free-photo/close-up-toy-car-with-easter-eggs_23-2149318378.jpg?w=1060&t=st=1684480705~exp=1684481305~hmac=e3cdd0433fc721383d268503289f943cf9d5b3b1261715d25ab9ffccd9ec6aac',
         // ... add more image URLs here
+        'https://i.ibb.co/d0Hqdm9/unbreakable-kids-cricket-kit-set-with-bat-balls-wickets-bells-original-imag49fg6da3zvmq.jpg'
     ];
 
     return (
