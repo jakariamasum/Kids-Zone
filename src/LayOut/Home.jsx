@@ -1,3 +1,4 @@
+import Gallery from "../components/Gallery/Gallery";
 import Slider from "../components/slider";
 import 'swiper/css';
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <h1>Home</h1>
             <Slider/>
+            <Gallery/>
         </div>
     );
 };
