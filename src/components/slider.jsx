@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const Slider = () => {
   const [presentSlide, setPresentSlide] = useState(0);
