@@ -7,10 +7,12 @@ import Home from "../LayOut/Home";
 import AllToys from "../Pages/AllToys/AllToys";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main/>,
+      errorElement: <NotFoundPage/>,
       children:[
         {
             path:'/', 
