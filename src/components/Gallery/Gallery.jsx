@@ -17,18 +17,22 @@ const Gallery = () => {
     return (
         <div className="mt-10 lg:mx-28">
             <h1 className="text-center mb-2 font-bold text-3xl">Gallery</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {images.map((img, indx) => (
                     <div key={indx} className="relative overflow-hidden">
                         <div className="relative">
-                            <img src={img} alt={`Image ${indx + 1}`} className="w-full p-2 h-[350px] object-cover border" />
-                            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-50 bg-black">
-                            </div>
+                            <img
+                                src={img}
+                                alt={`Image ${indx + 1}`}
+                                className="w-full p-2 h-[350px] object-cover border"
+                            />
+                            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-50 bg-black"></div>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
+
     );
 };
 

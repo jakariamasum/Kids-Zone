@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SubCategoryCard = ({toy}) => {
-    const {picture,toyName,rating,price,quantity}=toy;
+const SubCategoryCard = ({ toy }) => {
+    const { picture, toyName, rating, price, quantity } = toy;
     return (
-        <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="flex justify-center">
+            <div className="card w-full sm:w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={picture} alt={toyName} className="rounded-xl" />
                 </figure>
@@ -17,6 +17,7 @@ const SubCategoryCard = ({toy}) => {
                 </div>
             </div>
         </div>
+
     );
 };
 
