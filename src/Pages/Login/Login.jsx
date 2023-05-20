@@ -6,7 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 const Login = () => {
     const navigate = useNavigate();
-    const { user, googleLogin, signIn } = useContext(AuthContext);
+    const { googleLogin, signIn } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState('');
 
@@ -23,7 +23,8 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        // console.log(email, password)
+        const from = location.state?.from?.pathname || '/'
         signIn(email, password)
             .then(res => {
                 console.log(res.user)
@@ -34,7 +35,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate('/');
+                navigate(from,{replace:true});
             })
             .catch(error => console.log(error.message));
     }

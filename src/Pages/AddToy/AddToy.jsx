@@ -36,17 +36,18 @@ const AddToy = () => {
             },
             body: JSON.stringify(newToy)
         })
-            .then(res => {
-                console.log(res)
-                Swal.fire({
-                    position: 'text-center',
-                    icon: 'success',
-                    title: 'New Toy add successful',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
+        .then(res=>res.json())
+        .then(data => {
+                console.log(data)
             })
-            .catch(error => console.log(error.message))
+            Swal.fire({
+                position: 'text-center',
+                icon: 'success',
+                title: 'New Toy add successful',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            form.reset();
     }
 
 
