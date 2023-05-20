@@ -1,26 +1,29 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddToy = () => {
+    const {user}=useContext(AuthContext);
 
     const handleAddToy = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photoUrl = form.photoURL.value;
+        const picture = form.photoURL.value;
         const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
+        const sellerEmail = user.email;
         const subCategory = form.subCategory.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-         console.log(photoUrl,name,sellerEmail,sellerName,subCategory,price,rating,quantity,description)
+         console.log(picture,name,sellerEmail,sellerName,subCategory,price,rating,quantity,description)
         const newToy = {
-            name,
-            photoUrl,
+            toyName:name,
+            picture,
             sellerName,
             sellerEmail,
-            subCategory,
+            subcategory:subCategory,
             price,
             rating,
             quantity,
@@ -66,7 +69,7 @@ const AddToy = () => {
                     </div>
                     <div className="mb-4">
                         <label className="block font-bold mb-2" htmlFor="sellerEmail">Seller Email</label>
-                        <input type="email" name='sellerEmail' id="sellerEmail" className="w-full px-3 py-2 border rounded" />
+                        <input type="email" defaultValue={user.email} readOnly name='sellerEmail' id="sellerEmail" className="w-full px-3 py-2 border rounded" />
                     </div>
                     <div className="mb-4">
                         <label className="block font-bold mb-2" htmlFor="subCategory">Sub-category</label>
