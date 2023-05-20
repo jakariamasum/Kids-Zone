@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import ToyCard from "../../components/ToyCard/ToyCard";
 
 const AllToys = () => {
-    const [toys,setToys]=useState([]); 
-    useEffect(()=>{
+    const [toys, setToys] = useState([]);
+    useEffect(() => {
         fetch('http://localhost:5000/toys')
-        .then(res=>res.json())
-        .then(data=>setToys(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setToys(data))
+    }, [])
+    
     return (
         <div className="overflow-x-auto mt-16 mx-28">
             <table className="table table-compact w-full">
@@ -24,12 +25,12 @@ const AllToys = () => {
                 </thead>
                 <tbody>
                     {
-                        toys.map((toy,indx)=>{
-                           return <ToyCard key={toy._id} toy={toy} indx={indx+1}></ToyCard>
+                        toys.map((toy, indx) => {
+                            return <ToyCard key={toy._id} toy={toy} indx={indx + 1}></ToyCard>
                         })
                     }
                 </tbody>
-               
+
             </table>
         </div>
     );

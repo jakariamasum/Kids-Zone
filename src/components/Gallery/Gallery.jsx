@@ -21,7 +21,7 @@ const Gallery = () => {
                 {images.map((img, indx) => (
                     <div key={indx} className="relative overflow-hidden">
                         <div className="relative">
-                            <img src={img} alt={`Image ${indx + 1}`} className="w-full h-full object-cover" />
+                            <img src={img} alt={`Image ${indx + 1}`} className="w-full p-2 h-[350px] object-cover border" />
                             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-50 bg-black">
                             </div>
                         </div>
