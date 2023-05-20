@@ -3,6 +3,7 @@ import Slider from "../components/Banner";
 import 'swiper/css';
 import SubCategory from "../components/SubCategory/SubCategory";
 import Partners from "../components/Partners/Partners";
+import RecentBlog from "../components/RecentBlog/RecentBlog";
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Slider/>
             <Gallery/>
             <SubCategory/>
+            <RecentBlog/>
             <Partners/>
         </div>
     );
