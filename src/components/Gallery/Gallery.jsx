@@ -1,10 +1,17 @@
 const Gallery = () => {
     const images = [
-        'https://i.ibb.co/7by202m/31-B32-RE8x-AL-SX300-SY300-QL70-FMwebp.webp',
-        'https://img.freepik.com/free-photo/close-up-toy-car-with-easter-eggs_23-2149318378.jpg?w=1060&t=st=1684480705~exp=1684481305~hmac=e3cdd0433fc721383d268503289f943cf9d5b3b1261715d25ab9ffccd9ec6aac',
-        'https://img.freepik.com/free-photo/close-up-toy-car-with-easter-eggs_23-2149318378.jpg?w=1060&t=st=1684480705~exp=1684481305~hmac=e3cdd0433fc721383d268503289f943cf9d5b3b1261715d25ab9ffccd9ec6aac',
-        // ... add more image URLs here
-        'https://i.ibb.co/d0Hqdm9/unbreakable-kids-cricket-kit-set-with-bat-balls-wickets-bells-original-imag49fg6da3zvmq.jpg'
+        'https://i.ibb.co/v30KbDW/81t-Pz-EJ25-HL-AC-SX679.jpg',
+        'https://i.ibb.co/WHFpk5T/61-KOpu-EL1c-L-AC-SX679.jpg',
+        'https://i.ibb.co/kgBZm5q/81-SUMOj-Wsa-L-AC-SY879.jpg',
+        'https://i.ibb.co/6s3txDw/71-4-H60-Rex-L-AC-SX679.jpg',
+        'https://i.ibb.co/N9FpR6j/71l2-Mfrh-Wk-L-AC-SX679.jpg',
+        'https://i.ibb.co/wWKvWXC/61-F3p01-Op-L-AC-SX679.jpg',
+        'https://i.ibb.co/bFxPc3n/81r-Xh06ult-L-AC-SX679.jpg',
+        'https://i.ibb.co/kDtdRVF/81-POT1g-M6d-L-AC-SX679.jpg',
+        'https://i.ibb.co/yyLDBTR/61-GXE3005-VL-AC-SX679.jpg',
+        'https://i.ibb.co/MNczTSZ/71zs-Ycf-J7-L-AC-SX679.jpg',
+        'https://i.ibb.co/wzgZ0V8/61-C41f9r9-DL-AC-SX679.jpg',
+        'https://i.ibb.co/jZShTNv/71o-Ablu-K58-S-AC-SX679.jpg'
     ];
 
     return (

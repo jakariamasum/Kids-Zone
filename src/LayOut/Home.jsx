@@ -1,5 +1,5 @@
 import Gallery from "../components/Gallery/Gallery";
-import Slider from "../components/slider";
+import Slider from "../components/Banner";
 import 'swiper/css';
 
 const Home = () => {
