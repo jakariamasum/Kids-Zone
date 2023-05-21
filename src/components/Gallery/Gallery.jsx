@@ -1,3 +1,7 @@
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Gallery = () => {
     const images = [
         'https://i.ibb.co/v30KbDW/81t-Pz-EJ25-HL-AC-SX679.jpg',
@@ -14,12 +18,20 @@ const Gallery = () => {
         'https://i.ibb.co/jZShTNv/71o-Ablu-K58-S-AC-SX679.jpg'
     ];
 
+    useEffect(() => {
+        AOS.init({ duration: 800 }); // Initialize AOS with desired options
+    }, []);
+
     return (
         <div className="mt-10 lg:mx-28">
             <h1 className="text-center mb-2 font-bold text-3xl">Gallery</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {images.map((img, indx) => (
-                    <div key={indx} className="relative overflow-hidden">
+                    <div
+                        key={indx}
+                        className="relative overflow-hidden"
+                        data-aos="fade-up" // Add AOS animation attribute
+                    >
                         <div className="relative">
                             <img
                                 src={img}
@@ -32,7 +44,6 @@ const Gallery = () => {
                 ))}
             </div>
         </div>
-
     );
 };
 
