@@ -1,14 +1,8 @@
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitlte from "../../hooks/useTitle";
 
 const Update = () => {
   const toy = useLoaderData();
-  const [updateInfo, setUpdateInfo] = useState({
-    price: "",
-    quantity: "",
-    description: "",
-  });
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -18,21 +12,31 @@ const Update = () => {
     const description = form.description.value;
 
     const updatedToy = {
-      ...toy,
       price,
       quantity,
       description,
     };
 
-      fetch(`https://kids-zone-server-weld.vercel.app/toys/${toy.id}`, {
-        method: 'PUT',
-        headers:{
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(updatedToy)
+    fetch(`https://kids-zone-server-weld.vercel.app/toys/${toy._id}`, {
+      method: "PUT",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedToy),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Failed to update toy information.");
+        }
       })
-      .then(res=>res.json())
-      .then(data=>console.log(data))
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     
   };
 
