@@ -5,7 +5,9 @@ import { FaGoogle } from 'react-icons/fa'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitlte from '../../hooks/useTitle';
 const Login = () => {
+    useTitlte('Login')
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const { googleLogin, signIn } = useContext(AuthContext);

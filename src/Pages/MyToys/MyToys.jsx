@@ -2,20 +2,22 @@ import { useContext, useEffect, useState } from "react";
 import MyToyRow from "../../components/MyToyRow/MyToyRow";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitlte from "../../hooks/useTitle";
 
 const MyToys = () => {
+    useTitlte('My toys')
     const [myToys, setMyToys] = useState([]);
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-toys?email=${user?.email}`)
+        fetch(`https://kids-zone-server-weld.vercel.app/my-toys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data));
     }, [user?.email]);
 
     const handleSortChange = (event) => {
         const sortOption = event.target.value;
-        fetch(`http://localhost:5000/my-toys?email=${user?.email}&sort=${sortOption}`)
+        fetch(`https://kids-zone-server-weld.vercel.app/my-toys?email=${user?.email}&sort=${sortOption}`)
             .then(res => res.json())
             .then(data => setMyToys(data));
     }
@@ -31,7 +33,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://kids-zone-server-weld.vercel.app/toys/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

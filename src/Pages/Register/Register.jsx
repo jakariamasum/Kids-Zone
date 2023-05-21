@@ -4,9 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { getAuth, updateProfile } from 'firebase/auth'
+import useTitlte from '../../hooks/useTitle';
 const auth = getAuth()
 
 const Register = () => {
+    useTitlte('Register')
     const [err,setErr]=useState('');
     const navigate = useNavigate();
     const { createUser, logOut } = useContext(AuthContext);

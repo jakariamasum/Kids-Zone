@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import ToyCard from "../../components/ToyCard/ToyCard";
+import useTitlte from "../../hooks/useTitle";
 
 const AllToys = () => {
+    useTitlte('All toys')
     const [toys, setToys] = useState([]);
     const [filteredToys, setFilteredToys] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
     const limit = 20;
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?limit=${limit}`)
+        fetch(`https://kids-zone-server-weld.vercel.app/toys?limit=${limit}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);

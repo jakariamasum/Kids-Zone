@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitlte from "../../hooks/useTitle";
 
 const AddToy = () => {
+    useTitlte('Add a toy')
     const {user}=useContext(AuthContext);
 
     const handleAddToy = (event) => {
@@ -29,7 +31,7 @@ const AddToy = () => {
             quantity,
             description
         }
-        fetch('http://localhost:5000/my-toys', {
+        fetch('https://kids-zone-server-weld.vercel.app/my-toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -66,7 +68,7 @@ const AddToy = () => {
                     </div>
                     <div className="mb-4">
                         <label className="block font-bold mb-2" htmlFor="sellerName">Seller Name</label>
-                        <input type="text" defaultValue={user.displayName?user.displayName: ''} readOnly name='sellerName' id="sellerName" className="w-full px-3 py-2 border rounded" />
+                        <input type="text" defaultValue={user.displayName?user.displayName: ''}  name='sellerName' id="sellerName" className="w-full px-3 py-2 border rounded" />
                     </div>
                     <div className="mb-4">
                         <label className="block font-bold mb-2" htmlFor="sellerEmail">Seller Email</label>

@@ -10,7 +10,7 @@ const SubCategory = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/myToys?category=${selectedTab}`);
+        const response = await fetch(`https://kids-zone-server-weld.vercel.app/myToys?category=${selectedTab}`);
         const data = await response.json();
         setToys(data);
       } catch (error) {

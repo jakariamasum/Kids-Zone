@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitlte from "../../hooks/useTitle";
 
 const Update = () => {
   const toy = useLoaderData();
@@ -23,7 +24,7 @@ const Update = () => {
       description,
     };
 
-      fetch(`http://localhost:5000/toys/${toy.id}`, {
+      fetch(`https://kids-zone-server-weld.vercel.app/toys/${toy.id}`, {
         method: 'PUT',
         headers:{
             'content-type': 'application/json'
@@ -35,6 +36,7 @@ const Update = () => {
     
   };
 
+  useTitlte('Update')
   return (
     <div className="max-w-xl mx-auto mt-16">
       <h1 className="text-2xl font-bold mb-4 text-center">

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import useTitlte from "../../hooks/useTitle";
 
 const Blog = () => {
+    useTitlte('Blog')
     const [expanded, setExpanded] = useState(false);
     const [expanded2, setExpanded2] = useState(false);
     const [expanded3, setExpanded3] = useState(false);
