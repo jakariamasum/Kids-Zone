@@ -42,7 +42,7 @@ const Update = () => {
       Swal.fire({
         position: 'text-center',
         icon: 'success',
-        title: 'New Toy add successful',
+        title: 'Update successful',
         showConfirmButton: false,
         timer: 1500
     })
