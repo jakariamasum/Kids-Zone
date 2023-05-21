@@ -1,15 +1,18 @@
 import { useContext, useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { FaGoogle } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { ToastContainer } from 'react-toastify';
 const Login = () => {
     const navigate = useNavigate();
     const [error,setError]=useState('');
     const { googleLogin, signIn } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState('');
+    const location=useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
@@ -24,8 +27,6 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(email, password)
-        const from = location.state?.from?.pathname || '/'
         signIn(email, password)
             .then(res => {
                 setError('')
