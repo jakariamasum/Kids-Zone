@@ -82,10 +82,21 @@ const Blog = () => {
     NestJS is a progressive Node.js framework for building scalable and efficient server-side applications. It is built with TypeScript and uses modern JavaScript features, decorators, and design patterns. NestJS leverages concepts from both object-oriented programming (OOP) and functional programming (FP) to provide a robust and modular architecture.`;
 
 
+    const answer4 =
+        `
+    The MongoDB aggregation framework is a feature that allows you to perform advanced data processing and analysis operations on MongoDB collections. It provides a flexible and efficient way to retrieve, transform, and aggregate data within the database.
+
+    The aggregation pipeline is the core concept of the aggregation framework. It consists of a series of stages, where each stage performs a specific operation on the data. The output of one stage serves as the input for the next stage in the pipeline.
+
+    Each stage in the pipeline can apply operators to filter, project, group, sort, and perform various calculations on the data. These operators include '$matc' for filtering documents, '$project' for selecting specific fields, '$group' for grouping documents by a specific field, '$sort' for sorting documents, and many more.
+
+    By chaining together these stages and operators, you can create complex data transformations and perform analytics tasks such as grouping, counting, summing, averaging, and more. The aggregation framework provides a rich set of operators and functions to support these operations.
+    `;
 
     const handleRead = expanded ? answer : `${answer.slice(0, 300)}...`;
     const handleRead2 = expanded2 ? answer2 : `${answer2.slice(0, 300)}...`;
     const handleRead3 = expanded3 ? answer3 : `${answer3.slice(0, 300)}...`;
+    const handleRead4 = expanded4 ? answer4 : `${answer4.slice(0, 300)}...`;
 
     return (
         <div className='mt-28 mx-36'>
@@ -114,9 +125,18 @@ const Blog = () => {
             <div>
                 <h3 className="text-lg font-semibold mt-5">What is express js? What is Nest JS?</h3>
                 <p className="whitespace-pre-line">{handleRead3}
-                    {handleRead2.length > 300 && (
+                    {handleRead3.length > 300 && (
                         <button className="text-blue-500 whitespace-pre-line hover:underline ml-2 mt-3" onClick={handleToggle3}>
                             {expanded3 ? 'Read Less' : 'Read More'}
+                        </button>
+                    )}</p>
+            </div>
+            <div>
+                <h3 className="text-lg font-semibold mt-5">What is MongoDB aggregate and how does it work?</h3>
+                <p className="whitespace-pre-line">{handleRead4}
+                    {handleRead4.length > 300 && (
+                        <button className="text-blue-500 whitespace-pre-line hover:underline ml-2 mt-3" onClick={handleToggle4}>
+                            {expanded4 ? 'Read Less' : 'Read More'}
                         </button>
                     )}</p>
             </div>

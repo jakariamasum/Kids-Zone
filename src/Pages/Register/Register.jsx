@@ -6,7 +6,8 @@ import Swal from 'sweetalert2';
 import { getAuth, updateProfile } from 'firebase/auth'
 const auth = getAuth()
 
-const Login = () => {
+const Register = () => {
+    const [err,setErr]=useState('');
     const navigate = useNavigate();
     const { createUser, logOut } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
@@ -30,6 +31,11 @@ const Login = () => {
         const email = form.email.value;
         const photoUrl = form.photoURL.value;
         const password = form.password.value;
+        console.log(password)
+        if (password.length < 6) {
+            setErr('Password must at least 6 character')
+            return;
+        }
 
         createUser(email, password)
             .then(res => {
@@ -50,7 +56,7 @@ const Login = () => {
                             setPassword('');
                         })
                         .catch(error => console.log(error.message))
-
+                        setErr('')
                     navigate('/login')
                 }).catch((error) => {
                     console.log(error.message)
@@ -69,17 +75,18 @@ const Login = () => {
                 <form onSubmit={handleRegister}>
                     <div className="mb-4">
                         <label htmlFor="name" className="block text-gray-700 text-sm font-medium mb-1">Name</label>
-                        <input required type="text" id="name" name='name' className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" />
+                        <input  type="text" id="name" name='name' className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-1">Email</label>
                         <input required type="email" name='email' id="email" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" />
                     </div>
                     <div className="mb-6 relative">
-                        <label required htmlFor="password" className="block text-gray-700 text-sm font-medium mb-1">Password</label>
+                        <label  htmlFor="password" className="block text-gray-700 text-sm font-medium mb-1">Password</label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             id="password"
+                            required
                             name='password'
                             value={password}
                             onChange={handlePasswordChange}
@@ -101,6 +108,7 @@ const Login = () => {
                         <label htmlFor="photoURL" className="block text-gray-700 text-sm font-medium mb-1">Photo URL</label>
                         <input type="text" name='photoURL' id="photoURl" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" />
                     </div>
+                    <div className="text-center mb-3 text-red-400"><p>{err}</p></div>
                     <div className="mb-6">
                         <input type="submit" className="w-full cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600" value="Register"></input>
                     </div>
@@ -117,4 +125,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
