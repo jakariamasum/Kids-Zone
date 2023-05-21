@@ -3,14 +3,40 @@ import ToyCard from "../../components/ToyCard/ToyCard";
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
+    const [filteredToys, setFilteredToys] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const limit = 20;
     useEffect(() => {
-        fetch('http://localhost:5000/toys?limit=20')
+        fetch(`http://localhost:5000/toys?limit=${limit}`)
             .then(res => res.json())
-            .then(data => setToys(data))
-    }, [])
-    
+            .then(data => {
+                setToys(data);
+                setFilteredToys(data);
+            });
+    }, []);
+
+    const handleSearch = event => {
+        const query = event.target.value.toLowerCase();
+        setSearchQuery(query);
+
+        const filteredResults = toys.filter(toy =>
+            toy.toyName.toLowerCase().includes(query)
+        );
+
+        setFilteredToys(filteredResults);
+    };
+
     return (
         <div className="overflow-x-auto mt-16 mx-28">
+            <div className="text-center flex justify-center text-success mb-5">
+                <input className="border p-2"
+                    type="text"
+                    placeholder="Search by Toy Name"
+                    onChange={handleSearch}
+                />
+            </div>
+
             <table className="table table-compact w-full">
                 <thead>
                     <tr className="text-center">
@@ -25,12 +51,11 @@ const AllToys = () => {
                 </thead>
                 <tbody>
                     {
-                        toys.map((toy, indx) => {
-                            return <ToyCard key={toy._id} toy={toy} indx={indx + 1}></ToyCard>
-                        })
+                        filteredToys.map((toy, indx) => (
+                            <ToyCard key={toy._id} toy={toy} indx={indx + 1}></ToyCard>
+                        ))
                     }
                 </tbody>
-
             </table>
         </div>
     );

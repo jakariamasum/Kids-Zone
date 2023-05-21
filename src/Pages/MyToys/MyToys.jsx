@@ -6,18 +6,20 @@ import Swal from "sweetalert2";
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
     const { user } = useContext(AuthContext);
-    //  useEffect(() => {
-    //      fetch(`http://localhost:5000/my-toys?email=${user?.email}`)
-    //          .then(res => res.json())
-    //          .then(data => setMyToys(data));
-    //  }, [myToys])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/my-toys?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setMyToys(data));
+    }, [user?.email]);
 
     const handleSortChange = (event) => {
-        const sortOption=event.target.value;
+        const sortOption = event.target.value;
         fetch(`http://localhost:5000/my-toys?email=${user?.email}&sort=${sortOption}`)
             .then(res => res.json())
-            .then(data => setMyToys(data))
+            .then(data => setMyToys(data));
     }
+
     const handleDelete = id => {
         Swal.fire({
             title: 'Are you sure?',
@@ -34,7 +36,6 @@ const MyToys = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-
                         if (data.deletedCount > 0) {
                             const remaining = myToys.filter(toy => toy._id !== id);
                             setMyToys(remaining);
@@ -51,18 +52,14 @@ const MyToys = () => {
 
     return (
         <div className="overflow-x-auto mt-16 mx-28">
-            <div className="mb-4">
-                <label htmlFor="sort-select">Sort By:</label>
+            <div className="mb-4 text-center">
+                <label htmlFor="sort-select text-2xl mr-2">Sort By:</label>
                 <select id="sort-select" onChange={handleSortChange}>
-                    <option value="asc" defaultChecked>Ascending</option>
+                    <option value="choose" defaultChecked>Choose an option</option>
+                    <option value="asc" >Ascending</option>
                     <option value="desc">Descending</option>
                 </select>
             </div>
-
-            {/* <div className="text-center flex gap-3 justify-center mb-7">
-            <button className="btn btn-outline " onClick={handleAscendingSort}>Ascending Sort</button>
-            <button className="btn btn-outline ">Descending Sort</button>
-        </div> */}
 
             <table className="table table-compact w-full">
                 <thead>
@@ -79,14 +76,15 @@ const MyToys = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        myToys.map((toy, indx) => {
-                            return <MyToyRow key={toy._id} toy={toy} handleDelete={handleDelete} indx={indx + 1} />
-
-                        })
-                    }
+                    {myToys.map((toy, indx) => (
+                        <MyToyRow
+                            key={toy._id}
+                            toy={toy}
+                            handleDelete={handleDelete}
+                            indx={indx + 1}
+                        />
+                    ))}
                 </tbody>
-
             </table>
         </div>
     );

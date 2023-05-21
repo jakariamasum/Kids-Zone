@@ -1,4 +1,4 @@
-import React from 'react';
+import {AiFillStar} from 'react-icons/ai'
 
 const SubCategoryCard = ({ toy }) => {
     const { picture, toyName, rating, price, quantity } = toy;
@@ -10,7 +10,9 @@ const SubCategoryCard = ({ toy }) => {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{toyName}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div>
+                        <p><AiFillStar/> </p>
+                    </div>
                     <div className="card-actions">
                         <button className="btn btn-primary">Buy Now</button>
                     </div>

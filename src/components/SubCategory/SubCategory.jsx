@@ -33,11 +33,13 @@ const SubCategory = () => {
         </TabList>
 
         <TabPanel>
-          {toys
-            .filter((toy) => toy.subcategory === 'Truck')
-            .map((toy) => (
-              <SubCategoryCard key={toy._id} toy={toy} />
-            ))}
+          <div className="grid grid-cols-3">
+            {toys
+              .filter((toy) => toy.subcategory === 'Truck')
+              .map((toy) => (
+                <SubCategoryCard key={toy._id} toy={toy} />
+              ))}
+          </div>
         </TabPanel>
         <TabPanel>
           {toys
