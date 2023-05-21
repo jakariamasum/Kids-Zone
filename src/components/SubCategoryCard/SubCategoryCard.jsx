@@ -1,24 +1,21 @@
-import { AiFillStar } from 'react-icons/ai';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {  Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const SubCategoryCard = ({ toy }) => {
   const navigate = useNavigate();
-  const location=useLocation()
-  const {user}=useContext(AuthContext)
+  const location = useLocation();
+  const { user } = useContext(AuthContext);
   const { picture, toyName, rating, price, quantity } = toy;
 
-  console.log(user)
   const handleViewDetails = (id) => {
-
     if (user) {
       navigate(`/toy-details/${id}`);
     } else {
+      navigate('/login', { state: { from: location } });
       toast.error('You have to log in first to view details');
-      <Navigate state={{ from: location }} to="/login" replace></Navigate>;  
     }
   };
 
@@ -36,13 +33,16 @@ const SubCategoryCard = ({ toy }) => {
             <p>Quantity: {quantity}</p>
           </div>
           <div className="card-actions">
-          <button className="btn btn-outline btn-primary" onClick={()=>handleViewDetails(toy._id)}>
+            <button
+              className="btn btn-outline btn-primary"
+              onClick={() => handleViewDetails(toy._id)}
+            >
               View Details
             </button>
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

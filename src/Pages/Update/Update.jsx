@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import useTitlte from "../../hooks/useTitle";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const toy = useLoaderData();
@@ -17,7 +18,7 @@ const Update = () => {
       description,
     };
 
-    fetch(`http://localhost:5000/toys/${toy._id}`, {
+    fetch(`https://kids-zone-server-weld.vercel.app/toys/${toy._id}`, {
       method: "PUT",
       headers: {
         "content-Type": "application/json",
@@ -31,12 +32,21 @@ const Update = () => {
           throw new Error("Failed to update toy information.");
         }
       })
+      
       .then((data) => {
         console.log(data);
       })
       .catch((error) => {
         console.error(error);
       });
+      Swal.fire({
+        position: 'text-center',
+        icon: 'success',
+        title: 'New Toy add successful',
+        showConfirmButton: false,
+        timer: 1500
+    })
+    form.reset();
     
   };
 

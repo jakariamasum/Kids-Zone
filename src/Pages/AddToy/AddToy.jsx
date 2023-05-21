@@ -31,7 +31,7 @@ const AddToy = () => {
             quantity,
             description
         }
-        fetch('http://localhost:5000/my-toys', {
+        fetch('https://kids-zone-server-weld.vercel.app/my-toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

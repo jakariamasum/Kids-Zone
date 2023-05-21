@@ -19,7 +19,7 @@ const Gallery = () => {
     ];
 
     useEffect(() => {
-        AOS.init({ duration: 800 }); // Initialize AOS with desired options
+        AOS.init({ duration: 800 }); 
     }, []);
 
     return (
@@ -30,7 +30,7 @@ const Gallery = () => {
                     <div
                         key={indx}
                         className="relative overflow-hidden"
-                        data-aos="fade-up" // Add AOS animation attribute
+                        data-aos="fade-up" 
                     >
                         <div className="relative">
                             <img
