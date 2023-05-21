@@ -17,7 +17,7 @@ const Update = () => {
       description,
     };
 
-    fetch(`https://kids-zone-server-weld.vercel.app/toys/${toy._id}`, {
+    fetch(`http://localhost:5000/toys/${toy._id}`, {
       method: "PUT",
       headers: {
         "content-Type": "application/json",

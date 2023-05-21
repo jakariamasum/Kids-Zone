@@ -11,10 +11,12 @@ const SubCategoryCard = ({ toy }) => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{toyName}</h2>
                     <div>
-                        <p><AiFillStar/> </p>
+                        <p>Rating: {rating}</p>
+                        <p>Price: ${price}</p>
+                        <p>Quantity: {quantity}</p>
                     </div>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn btn-outline btn-primary">Buy Now</button>
                     </div>
                 </div>
             </div>

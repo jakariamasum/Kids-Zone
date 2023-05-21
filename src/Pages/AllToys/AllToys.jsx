@@ -10,7 +10,7 @@ const AllToys = () => {
 
     const limit = 20;
     useEffect(() => {
-        fetch(`https://kids-zone-server-weld.vercel.app/toys?limit=${limit}`)
+        fetch(`http://localhost:5000/toys?limit=${limit}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);

@@ -12,7 +12,7 @@ const AddToy = () => {
         const form = event.target;
         const name = form.name.value;
         const picture = form.photoURL.value;
-        const sellerName = form.sellerName.value;
+        const sellerName = user?.displayName;
         const sellerEmail = user.email;
         const subCategory = form.subCategory.value;
         const price = form.price.value;
@@ -31,7 +31,7 @@ const AddToy = () => {
             quantity,
             description
         }
-        fetch('https://kids-zone-server-weld.vercel.app/my-toys', {
+        fetch('http://localhost:5000/my-toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -68,7 +68,7 @@ const AddToy = () => {
                     </div>
                     <div className="mb-4">
                         <label className="block font-bold mb-2" htmlFor="sellerName">Seller Name</label>
-                        <input type="text" defaultValue={user.displayName?user.displayName: ''}  name='sellerName' id="sellerName" className="w-full px-3 py-2 border rounded" />
+                        <input type="text" defaultValue={user.displayName?user.displayName: ''} readOnly  name='sellerName' id="sellerName" className="w-full px-3 py-2 border rounded" />
                     </div>
                     <div className="mb-4">
                         <label className="block font-bold mb-2" htmlFor="sellerEmail">Seller Email</label>

@@ -50,12 +50,12 @@ import Update from "../Pages/Update/Update";
         {
           path: '/toy-details/:id',
           element:<PrivateRoute><ToyDetails/></PrivateRoute>,
-          loader: ({params})=>fetch(`https://kids-zone-server-weld.vercel.app/toy-details/${params.id}`)
+          loader: ({params})=>fetch(`http://localhost:5000/toy-details/${params.id}`)
         },
         {
           path: 'update/:id', 
           element: <Update/>,
-          loader: ({params})=>fetch(`https://kids-zone-server-weld.vercel.app/my-toy/${params.id}`)
+          loader: ({params})=>fetch(`http://localhost:5000/my-toy/${params.id}`)
         }
       ]
     },

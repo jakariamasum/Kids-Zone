@@ -10,7 +10,7 @@ const SubCategory = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://kids-zone-server-weld.vercel.app/myToys?category=${selectedTab}`);
+        const response = await fetch(`http://localhost:5000/myToys?category=${selectedTab}`);
         const data = await response.json();
         setToys(data);
       } catch (error) {
@@ -42,18 +42,22 @@ const SubCategory = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          {toys
-            .filter((toy) => toy.subcategory === 'Cycle')
-            .map((toy) => (
-              <SubCategoryCard key={toy._id} toy={toy} />
-            ))}
+          <div className="grid grid-cols-3">
+            {toys
+              .filter((toy) => toy.subcategory === 'Cycle')
+              .map((toy) => (
+                <SubCategoryCard key={toy._id} toy={toy} />
+              ))}
+          </div>
         </TabPanel>
-        <TabPanel className='grid grid-cols-3 gap-3 bg-red-300'>
-          {toys
-            .filter((toy) => toy.subcategory === 'Car')
-            .map((toy) => (
-              <SubCategoryCard key={toy._id} toy={toy} />
-            ))}
+        <TabPanel>
+          <div className="grid grid-cols-3">
+            {toys
+              .filter((toy) => toy.subcategory === 'Car')
+              .map((toy) => (
+                <SubCategoryCard key={toy._id} toy={toy} />
+              ))}
+          </div>
         </TabPanel>
       </Tabs>
     </div>
