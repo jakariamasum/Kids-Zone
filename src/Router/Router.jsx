@@ -13,6 +13,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
 import PrivateRoute from "./PrivateRoute";
 import Update from "../Pages/Update/Update";
+import Cart from "../components/Cart/Cart";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -26,6 +27,10 @@ import Update from "../Pages/Update/Update";
         {
             path:'/toys', 
             element: <AllToys/>
+        },
+        {
+          path:'/cart',
+          element: <Cart/>
         },
         {
             path: '/blog',
