@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import {GiHamburgerMenu} from 'react-icons/gi'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -62,6 +62,12 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link
+                  to="/cart"
+                  className="hidden md:flex text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Cart
+                </Link>
+                <Link
                   to="/my-toys"
                   className="hidden md:flex text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
@@ -110,7 +116,7 @@ const Navbar = () => {
               aria-label="Menu"
               onClick={toggleMenu}
             >
-              <GiHamburgerMenu className="ml-4"/>
+              <GiHamburgerMenu className="ml-4" />
             </button>
           </div>
         </div>
@@ -136,6 +142,12 @@ const Navbar = () => {
             </Link>
             {user && (
               <>
+                <Link
+                  to="/cart"
+                  className="hidden md:flex text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Cart
+                </Link>
                 <Link
                   to="/my-toys"
                   className="block text-gray-300 hover:bg-gray-700 px-4 py-2 rounded-md text-base font-medium"
